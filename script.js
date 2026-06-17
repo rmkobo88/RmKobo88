@@ -1,5 +1,86 @@
 const CART_KEY = "rmkobo88_cart";
 
+document
+.getElementById("excelFile")
+.addEventListener(
+"change",
+bacaExcel
+);
+
+function bacaExcel(e){
+
+const file =
+e.target.files[0];
+
+if(!file) return;
+
+const reader =
+new FileReader();
+
+reader.onload =
+function(evt){
+
+const data =
+new Uint8Array(
+evt.target.result
+);
+
+const workbook =
+XLSX.read(
+data,
+{type:'array'}
+);
+
+const sheet =
+workbook.Sheets[
+workbook.SheetNames[0]
+];
+
+const hasil =
+XLSX.utils.sheet_to_json(
+sheet
+);
+
+menuData.length = 0;
+
+hasil.forEach(item=>{
+
+menuData.push({
+
+nama:
+item.nama,
+
+harga:
+Number(item.harga),
+
+kategori:
+item.kategori,
+
+gambar:
+item.gambar || "",
+
+stok:
+String(item.stok)
+.toLowerCase()
+==="true",
+
+bestSeller:
+String(item.bestSeller)
+.toLowerCase()
+==="true"
+
+});
+
+});
+
+renderMenu(menuData);
+
+};
+
+reader.readAsArrayBuffer(file);
+
+}
+
 let cart =
 JSON.parse(
 localStorage.getItem(CART_KEY)
@@ -696,5 +777,66 @@ btn.classList.remove(
 );
 
 },300);
+
+}
+
+document
+.getElementById("excelFile")
+.addEventListener("change", bacaExcel);
+
+function bacaExcel(e){
+
+const file = e.target.files[0];
+
+const reader = new FileReader();
+
+reader.onload = function(evt){
+
+const data = new Uint8Array(evt.target.result);
+
+const workbook =
+XLSX.read(data,{type:'array'});
+
+const sheet =
+workbook.Sheets[
+workbook.SheetNames[0]
+];
+
+const hasil =
+XLSX.utils.sheet_to_json(sheet);
+
+menuData.length = 0;
+
+hasil.forEach(item=>{
+
+menuData.push({
+
+nama:item.nama,
+
+harga:Number(item.harga),
+
+kategori:item.kategori,
+
+gambar:item.gambar || "",
+
+stok:
+String(item.stok)
+.toLowerCase()
+==="true",
+
+bestSeller:
+String(item.bestSeller)
+.toLowerCase()
+==="true"
+
+});
+
+});
+
+renderMenu(menuData);
+
+};
+
+reader.readAsArrayBuffer(file);
 
 }

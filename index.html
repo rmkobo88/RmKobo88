@@ -72,8 +72,16 @@ Minuman
 
 </div>
 
-<div id="menu-container">
+<div style="padding:15px;text-align:center;">
+
+<input
+type="file"
+id="excelFile"
+accept=".xlsx,.xls">
+
 </div>
+
+<div id="menu-container"></div>
 
 <div id="cart-popup">
 
@@ -199,6 +207,8 @@ onclick="toggleCart()">
 </span>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <script src="menu.js"></script>
 <script src="script.js"></script>
