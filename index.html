@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>RM KOBO88</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<img src="logo.png" class="logo">
+
+<h1>RM KOBO88</h1>
+
+<div id="statusBuka"></div>
+
+</header>
+
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Cari menu favoritmu...">
+
+</div>
+
+
+<div class="kategori">
+
+<button onclick="filterMenu('all')">
+Semua
+</button>
+
+<button onclick="filterMenu('ayam')">
+Ayam
+</button>
+
+<button onclick="filterMenu('ikan')">
+Ikan & Iga
+</button>
+
+<button onclick="filterMenu('ricebowl')">
+Rice Bowl
+</button>
+
+<button onclick="filterMenu('sayur')">
+Sayur
+</button>
+
+<button onclick="filterMenu('chacha')">
+Cha Cha
+</button>
+
+<button onclick="filterMenu('cemilan')">
+Cemilan
+</button>
+
+<button onclick="filterMenu('minuman')">
+Minuman
+</button>
+
+</div>
+
+
+<div id="menu-container">
+
+</div>
+
+
+
+<!-- FLOATING CART -->
+
+<div id="cart-button"
+onclick="toggleCart()">
+
+🛒
+
+<span id="cart-count">
+0
+</span>
+
+</div>
+
+
+
+<!-- POPUP CART -->
+
+<div id="cart-popup">
+
+<div class="popup-header">
+
+<h2>🛒 Keranjang</h2>
+
+<button
+class="close-btn"
+onclick="toggleCart()">
+
+✕
+
+</button>
+
+</div>
+
+
+
+<select
+id="jenisOrder"
+onchange="saveForm(); tampilkanForm()">
+
+<option value="">
+Pilih Jenis Pesanan
+</option>
+
+<option value="Dine In">
+🍽️ Makan Di Tempat
+</option>
+
+<option value="Take Away">
+🥡 Take Away
+</option>
+
+<option value="Delivery">
+🛵 Delivery
+</option>
+
+</select>
+
+
+
+<div id="mejaBox">
+
+<select
+id="nomorMeja"
+onchange="saveForm()">
+
+<option value="">
+Pilih Nomor Meja
+</option>
+
+<option>Meja 1</option>
+<option>Meja 2</option>
+<option>Meja 3</option>
+<option>Meja 4</option>
+<option>Meja 5</option>
+
+</select>
+
+</div>
+
+
+
+<div id="alamatBox">
+
+<textarea
+
+id="alamatDelivery"
+
+placeholder="Masukkan alamat delivery"
+
+onkeyup="saveForm()">
+
+</textarea>
+
+</div>
+
+
+
+
+<div class="customer-form">
+
+<label>Nama Customer</label>
+
+<input
+
+type="text"
+
+id="customerName"
+
+placeholder="Masukkan nama"
+
+onkeyup="saveForm()"
+
+>
+
+
+
+<label>Catatan Pesanan</label>
+
+<textarea
+
+id="customerNote"
+
+placeholder="Pedas sedang, tanpa bawang, dll"
+
+onkeyup="saveForm()">
+
+</textarea>
+
+</div>
+
+
+
+<div id="popup-items">
+
+Belum ada pesanan
+
+</div>
+
+
+
+<div id="popup-total">
+
+TOTAL : 0 RIEL
+
+</div>
+
+
+
+<button
+
+class="checkout"
+
+onclick="checkoutWA()">
+
+Checkout WhatsApp
+
+</button>
+
+
+
+<button
+
+class="clear"
+
+onclick="clearCart()">
+
+Kosongkan Keranjang
+
+</button>
+
+
+</div>
+
+
+
+
+<script src="menu.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
