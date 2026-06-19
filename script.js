@@ -930,22 +930,22 @@ delimiter:";",
 complete:function(results){
 
 menuData = results.data
+
 .filter(item => item.nama)
+
 .map(item => ({
 
-nama: item.nama,
+nama:item.nama,
 
-harga: Number(item.harga),
+harga:Number(item.harga),
 
-kategori: item.kategori,
+kategori:item.kategori,
 
-gambar: "images/" + item.gambar,
+gambar:"images/" + item.gambar,
 
-stok: String(item.stok)
-.toLowerCase() === "TRUE",
+stok:String(item.stok).toUpperCase() === "TRUE",
 
-bestseller: String(item.bestSeller)
-.toLowerCase() === "TRUE"
+bestseller:String(item.bestSeller).toUpperCase() === "TRUE"
 
 }));
 
