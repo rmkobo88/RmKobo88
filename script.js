@@ -44,13 +44,11 @@ status.innerHTML =
 function renderMenu(data){
 
 let container =
-document.getElementById(
-"menu-container"
-);
+document.getElementById("menu-container");
 
-container.innerHTML="";
+container.innerHTML = "";
 
-data.forEach(menu=>{
+data.forEach(menu => {
 
 container.innerHTML += `
 
@@ -59,35 +57,20 @@ container.innerHTML += `
 ${menu.bestseller ?
 
 `<div class="best-seller">
-
 🔥 BEST SELLER
-
 </div>`
 
-:""}
+: ""}
 
 <img
-
 src="${menu.gambar}"
-
-onerror="
-this.src='images/no-image.jpg'
-"
-
+onerror="this.src='images/no-image.jpg'"
 >
 
-<h3>
-
-${menu.nama}
-
-</h3>
+<h3>${menu.nama}</h3>
 
 <div class="harga">
-
-${menu.harga.toLocaleString()}
-
-RIEL
-
+${menu.harga.toLocaleString()} RIEL
 </div>
 
 ${
@@ -111,21 +94,6 @@ Tambah
 class="tambah habis">
 Stok Habis
 </button>`
-
-}
-
-</button>`
-
-:
-
-`<button
-
-class="tambah habis">
-
-Stok Habis
-
-</button>`
-
 }
 
 </div>
