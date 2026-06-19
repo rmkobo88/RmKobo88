@@ -925,15 +925,12 @@ encodeURIComponent(pesan),
 function loadCSV(){
 
 Papa.parse(
-
 "menu.csv",
-
 {
-
 download:true,
-
 header:true,
-
+delimiter:";",
+  
 complete:function(results){
 
 menuData =
