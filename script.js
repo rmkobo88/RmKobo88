@@ -5,11 +5,11 @@ JSON.parse(
 localStorage.getItem(CART_KEY)
 ) || [];
 
+let menuData = [];
+
 loadForm();
 
 cekJam();
-
-let menuData = [];
 
 loadCSV();
 
@@ -70,7 +70,9 @@ ${menu.bestseller ?
 
 src="${menu.gambar}"
 
-onerror="this.src='no-image.jpg'"
+onerror="
+this.src='images/no-image.jpg'
+"
 
 >
 
@@ -95,9 +97,27 @@ menu.stok ?
 
 class="tambah"
 
-onclick="addCart('${menu.nama}')">
+${
+menu.stok ?
 
+`<button
+class="tambah"
+onclick="addCart(
+'${menu.nama}',
+'${menu.gambar}',
+event
+)">
 Tambah
+</button>`
+
+:
+
+`<button
+class="tambah habis">
+Stok Habis
+</button>`
+
+}
 
 </button>`
 
@@ -175,7 +195,12 @@ renderMenu(hasil);
 
 }
 
-function addCart(nama){
+function addCart(
+nama,
+gambar,
+event
+)
+{
 
 let item =
 
@@ -214,6 +239,29 @@ qty:1
 saveCart();
 
 updatePopupCart();
+
+let cartBtn =
+
+document.getElementById(
+"cart-button"
+);
+
+cartBtn.classList.add(
+"cart-animate"
+);
+
+setTimeout(()=>{
+
+cartBtn.classList.remove(
+"cart-animate"
+);
+
+},400);
+
+flyToCart(
+gambar,
+event
+);
 
 }
 
@@ -308,6 +356,32 @@ document
 .classList
 
 .toggle("show");
+
+}
+
+function flyToCart(imgSrc,event){
+
+let img = document.createElement("img");
+
+img.src = imgSrc;
+
+img.className = "fly-item";
+
+img.style.left =
+
+event.clientX + "px";
+
+img.style.top =
+
+event.clientY + "px";
+
+document.body.appendChild(img);
+
+setTimeout(()=>{
+
+img.remove();
+
+},800);
 
 }
 
