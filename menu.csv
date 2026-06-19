@@ -1,5 +1,5 @@
 nama;harga;kategori;gambar;stok;bestSeller
 Nasi Ayam Kalasan;16000;ayam;no-image.jpg;TRUE;FALSE
-Nasi Ayam Geprek;16000;ayam;images/ayam-geprek.jpg;TRUE;TRUE
-Nasi Ayam Katsu;16000;ayam;images/ayam-katsu.jpg;TRUE;FALSE
-Nasi Chicken Steak Mushroom;17000;ayam;nasi-chicken-steak-mushroom.jpg;TRUE;TRUE
+Nasi Ayam Geprek;16000;ayam;no-image.jpg;TRUE;TRUE
+Nasi Ayam Katsu;16000;ayam;no-image.jpg;TRUE;FALSE
+Nasi Chicken Steak Mushroom;17000;ayam;no-image.jpg;TRUE;TRUE
