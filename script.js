@@ -942,10 +942,10 @@ kategori: item.kategori,
 gambar: "images/" + item.gambar,
 
 stok: String(item.stok)
-.toLowerCase() === "true",
+.toLowerCase() === "TRUE",
 
 bestseller: String(item.bestSeller)
-.toLowerCase() === "true"
+.toLowerCase() === "TRUE"
 
 }));
 
