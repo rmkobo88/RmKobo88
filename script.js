@@ -924,39 +924,35 @@ encodeURIComponent(pesan),
 
 function loadCSV(){
 
-Papa.parse(
-"menu.csv",
-{
+Papa.parse("menu.csv",{
+
 download:true,
+
 header:true,
+
 delimiter:";",
-  
+
 complete:function(results){
 
-menuData =
+menuData = results.data
+.filter(item => item.nama)
+.map(item => ({
 
-results.data.map(item=>({
+nama: item.nama,
 
-nama:item.nama,
+harga: Number(item.harga),
 
-harga:Number(item.harga),
+kategori: item.kategori,
 
-kategori:item.kategori,
+gambar: "images/" + item.gambar,
 
-gambar:
+stok: String(item.stok)
+.toLowerCase() === "true",
 
-"images/" +
+bestseller: String(item.bestSeller)
+.toLowerCase() === "true"
 
-item.gambar,
-
-stok:
-String(item.stok).toLowerCase() === "true",
-
-bestseller:
-String(item.bestSeller).toLowerCase() === "true"
-  
 }));
-
 
 renderMenu(menuData);
 
