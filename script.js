@@ -950,13 +950,11 @@ gambar:
 item.gambar,
 
 stok:
-
-item.stok==="true",
+String(item.stok).toLowerCase() === "true",
 
 bestseller:
-
-item.bestseller==="true"
-
+String(item.bestSeller).toLowerCase() === "true"
+  
 }));
 
 
