@@ -91,14 +91,9 @@ RIEL
 </div>
 
 ${
-menu.stok ?
+menu.stok
 
-`<button
-
-class="tambah"
-
-${
-menu.stok ?
+?
 
 `<button
 class="tambah"
